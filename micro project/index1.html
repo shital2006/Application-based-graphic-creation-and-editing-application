@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vector Graphics Editor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+    <div>
+        <h1>Vector Studio</h1>
+        <p>Vector Graphics Creation & Editing</p>
+    </div>
+
+    <div class="top-actions">
+        <button id="undoBtn">Undo</button>
+        <button id="clearBtn">Clear Canvas</button>
+        <button id="saveBtn" class="primary">Export SVG</button>
+    </div>
+</header>
+
+<main class="app">
+    <aside class="sidebar">
+        <h2>Drawing Tools</h2>
+
+        <button class="tool active" data-tool="select">↖ Select / Move</button>
+        <button class="tool" data-tool="rect">▭ Rectangle</button>
+        <button class="tool" data-tool="circle">◯ Circle</button>
+        <button class="tool" data-tool="line">╱ Line</button>
+        <button class="tool" data-tool="star">☆ Star</button>
+        <button class="tool" data-tool="text">T Text</button>
+
+        <hr>
+
+        <h2>Object Properties</h2>
+
+        <label for="fillColor">Fill Color</label>
+        <input type="color" id="fillColor" value="#60a5fa">
+
+        <label for="strokeColor">Stroke Color</label>
+        <input type="color" id="strokeColor" value="#1d4ed8">
+
+        <label for="strokeWidth">Stroke Width</label>
+        <input type="range" id="strokeWidth"
+               min="1" max="15" value="3">
+        <span id="strokeValue">3 px</span>
+
+        <button id="applyBtn">Apply to Selected</button>
+        <button id="deleteBtn" class="danger">Delete Selected</button>
+
+        <p class="help">
+            Select a shape to edit its properties.
+            Drag on the canvas to create shapes.
+        </p>
+    </aside>
+
+    <section class="workspace">
+        <div class="canvas-heading">
+            <h2>Drawing Canvas</h2>
+            <span id="status">Tool: Select</span>
+        </div>
+
+        <div class="canvas-container">
+            <svg id="canvas"
+                 xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 1000 650"
+                 width="100%"
+                 height="100%"
+                 role="img"
+                 aria-label="Vector drawing canvas">
+
+                <rect id="canvasBackground"
+                      x="0" y="0"
+                      width="1000" height="650"
+                      fill="white"/>
+            </svg>
+        </div>
+
+        <footer class="footer">
+            <span>Vector Studio | SVG Editor</span>
+            <span>Canvas: 1000 × 650 px</span>
+        </footer>
+    </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
